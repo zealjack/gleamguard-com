@@ -77,6 +77,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "GleamGuard" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "GleamGuard — Premium Eco Cleaning & Pest Control" },
+      { name: "twitter:title", content: "GleamGuard — Premium Eco Cleaning & Pest Control" },
+      { property: "og:description", content: "Trusted, eco-friendly cleaning and pest control for homes and businesses." },
+      { name: "twitter:description", content: "Trusted, eco-friendly cleaning and pest control for homes and businesses." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d1a5ffe0-e831-48c1-b502-f7bce5c22fda/id-preview-bc4b88df--3ffc817e-651f-4ac7-9b5b-f591f8ebd88b.lovable.app-1778569911127.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d1a5ffe0-e831-48c1-b502-f7bce5c22fda/id-preview-bc4b88df--3ffc817e-651f-4ac7-9b5b-f591f8ebd88b.lovable.app-1778569911127.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
