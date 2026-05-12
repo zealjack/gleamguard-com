@@ -2,8 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import {
   Home, Building2, Bug, Sparkles, Leaf, ShieldCheck,
-  CheckCircle2, ArrowRight,
+  CheckCircle2, ArrowRight, Star,
 } from "lucide-react";
+import { useState } from "react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
