@@ -106,6 +106,9 @@ function ServicesPage() {
         </div>
       </section>
 
+      <PricingSection />
+      <FaqSection />
+
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-hero p-10 text-center text-primary-foreground shadow-elegant md:p-14">
           <Leaf className="mx-auto h-7 w-7 text-gold" />
