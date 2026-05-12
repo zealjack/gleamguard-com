@@ -128,3 +128,175 @@ function ServicesPage() {
     </SiteLayout>
   );
 }
+
+const tiers = [
+  {
+    name: "Essential",
+    price: "$129",
+    cadence: "per visit",
+    desc: "Perfect for routine upkeep and smaller spaces.",
+    features: [
+      "Up to 1,500 sq ft",
+      "Standard cleaning checklist",
+      "Eco-friendly products included",
+      "Flexible scheduling",
+    ],
+  },
+  {
+    name: "Premium",
+    price: "$229",
+    cadence: "per visit",
+    desc: "Our most popular plan — deeper care, bigger spaces.",
+    features: [
+      "Up to 3,000 sq ft",
+      "Deep clean checklist",
+      "Interior windows & appliances",
+      "Priority booking",
+    ],
+    featured: true,
+  },
+  {
+    name: "Guard Plan",
+    price: "Custom",
+    cadence: "tailored quote",
+    desc: "Combined cleaning + pest control on a recurring schedule.",
+    features: [
+      "Bundled cleaning & pest service",
+      "Quarterly pest prevention",
+      "Dedicated account manager",
+      "Same-week emergency response",
+    ],
+  },
+];
+
+function PricingSection() {
+  return (
+    <section className="bg-muted/60 py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald">Pricing</p>
+          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl">Flat-rate plans, no surprises</h2>
+          <p className="mt-4 text-muted-foreground">
+            Transparent pricing with the option to customize. Every plan includes our 100% satisfaction guarantee.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {tiers.map((t) => (
+            <div
+              key={t.name}
+              className={
+                "relative flex flex-col rounded-2xl border bg-card p-8 shadow-soft transition-smooth hover:-translate-y-1 hover:shadow-elegant " +
+                (t.featured ? "border-gold ring-2 ring-gold/30" : "border-border")
+              }
+            >
+              {t.featured && (
+                <span className="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-gold-grad px-3 py-1 text-xs font-semibold text-gold-foreground shadow-soft">
+                  <Star className="h-3 w-3 fill-current" /> Most Popular
+                </span>
+              )}
+              <h3 className="font-display text-xl font-bold text-navy">{t.name}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{t.desc}</p>
+              <div className="mt-6 flex items-baseline gap-2">
+                <span className="font-display text-4xl font-bold text-navy">{t.price}</span>
+                <span className="text-sm text-muted-foreground">{t.cadence}</span>
+              </div>
+              <ul className="mt-6 space-y-3">
+                {t.features.map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-sm">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-emerald" />
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                to="/contact"
+                className={
+                  "mt-8 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-smooth " +
+                  (t.featured
+                    ? "bg-gold text-gold-foreground shadow-glow hover:scale-[1.02]"
+                    : "bg-navy text-primary-foreground hover:bg-emerald")
+                }
+              >
+                Choose {t.name} <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-8 text-center text-xs text-muted-foreground">
+          Recurring weekly or bi-weekly clients save up to 20%. Bundle cleaning + pest control for additional savings.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+const faqs = [
+  {
+    q: "Are your products safe for kids and pets?",
+    a: "Yes. Every product we use is plant-based, biodegradable, and certified non-toxic. Surfaces are safe to use as soon as we're done.",
+  },
+  {
+    q: "Do I need to be home during service?",
+    a: "Not at all. Many of our clients provide secure entry instructions. Our background-checked technicians are fully insured and bonded.",
+  },
+  {
+    q: "How does pricing work for larger or unusual spaces?",
+    a: "We offer free on-site assessments for any space outside our standard tiers, and provide a flat, all-in quote — no hourly surprises.",
+  },
+  {
+    q: "What's included in your pest control service?",
+    a: "Inspection, eco-safe treatment, and a prevention plan tailored to your property. Most plans include scheduled follow-ups.",
+  },
+  {
+    q: "Can I reschedule or cancel a visit?",
+    a: "Absolutely. Reschedule or cancel up to 24 hours before your appointment at no charge.",
+  },
+  {
+    q: "Do you offer a satisfaction guarantee?",
+    a: "Yes — if anything isn't perfect, let us know within 24 hours and we'll re-clean the area free of charge.",
+  },
+];
+
+function FaqSection() {
+  const [open, setOpen] = useState<number | null>(0);
+  return (
+    <section className="mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8">
+      <div className="text-center">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald">FAQ</p>
+        <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl">Questions, answered</h2>
+        <p className="mt-4 text-muted-foreground">Everything you need to know before booking your first service.</p>
+      </div>
+
+      <div className="mt-10 divide-y divide-border rounded-2xl border border-border bg-card shadow-soft">
+        {faqs.map((f, i) => {
+          const isOpen = open === i;
+          return (
+            <div key={f.q}>
+              <button
+                onClick={() => setOpen(isOpen ? null : i)}
+                className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-smooth hover:bg-muted/50"
+                aria-expanded={isOpen}
+              >
+                <span className="font-display text-base font-semibold text-navy sm:text-lg">{f.q}</span>
+                <span
+                  className={
+                    "grid h-7 w-7 flex-none place-items-center rounded-full border border-border text-emerald transition-smooth " +
+                    (isOpen ? "rotate-45 bg-emerald text-white" : "")
+                  }
+                  aria-hidden
+                >
+                  +
+                </span>
+              </button>
+              {isOpen && (
+                <div className="px-6 pb-6 text-sm text-muted-foreground">{f.a}</div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
