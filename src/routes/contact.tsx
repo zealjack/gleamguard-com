@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { useId, useState, type FormEvent } from "react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Mail, Phone, MapPin, Clock, CheckCircle2 } from "lucide-react";
 
@@ -10,6 +10,34 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Get in touch for a free, tailored quote on cleaning or pest control services. Fast response within 24 hours." },
       { property: "og:title", content: "Contact GleamGuard" },
       { property: "og:description", content: "Request a free, tailored cleaning or pest control quote." },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "GleamGuard",
+          description: "Premium eco-friendly cleaning and pest control services for homes and businesses.",
+          telephone: "+254700711442",
+          email: "gleamguard3@gmail.com",
+          url: "https://gleamguard-pro-web.lovable.app",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Nairobi",
+            addressRegion: "CBD",
+            addressCountry: "KE",
+          },
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+              opens: "07:00",
+              closes: "20:00",
+            },
+          ],
+        }),
+      },
     ],
   }),
   component: ContactPage,
