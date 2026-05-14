@@ -114,8 +114,8 @@ function HomePage() {
               <div className="p-6">
                 <h3 className="font-display text-xl font-semibold">{s.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-                <Link to="/services" className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald hover:gap-2 transition-smooth">
-                  Learn more <ArrowRight className="h-4 w-4" />
+                <Link to="/services" className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald hover:gap-2 transition-smooth" aria-label={`Explore ${s.title} details and pricing`}>
+                  Explore {s.title} <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </article>
