@@ -14,6 +14,27 @@ export const Route = createFileRoute("/services")({
       { property: "og:title", content: "Services — GleamGuard" },
       { property: "og:description", content: "Premium cleaning and pest control plans for homes and businesses." },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            { q: "Are your products safe for kids and pets?", a: "Yes. Every product we use is plant-based, biodegradable, and certified non-toxic. Surfaces are safe to use as soon as we're done." },
+            { q: "Do I need to be home during service?", a: "Not at all. Many of our clients provide secure entry instructions. Our background-checked technicians are fully insured and bonded." },
+            { q: "How does pricing work for larger or unusual spaces?", a: "We offer free on-site assessments for any space outside our standard tiers, and provide a flat, all-in quote — no hourly surprises." },
+            { q: "What's included in your pest control service?", a: "Inspection, eco-safe treatment, and a prevention plan tailored to your property. Most plans include scheduled follow-ups." },
+            { q: "Can I reschedule or cancel a visit?", a: "Absolutely. Reschedule or cancel up to 24 hours before your appointment at no charge." },
+            { q: "Do you offer a satisfaction guarantee?", a: "Yes — if anything isn't perfect, let us know within 24 hours and we'll re-clean the area free of charge." },
+          ].map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
+    ],
   }),
   component: ServicesPage,
 });
