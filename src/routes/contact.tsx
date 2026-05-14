@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { useId, useState, type FormEvent } from "react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Mail, Phone, MapPin, Clock, CheckCircle2 } from "lucide-react";
 
@@ -10,6 +10,34 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Get in touch for a free, tailored quote on cleaning or pest control services. Fast response within 24 hours." },
       { property: "og:title", content: "Contact GleamGuard" },
       { property: "og:description", content: "Request a free, tailored cleaning or pest control quote." },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "GleamGuard",
+          description: "Premium eco-friendly cleaning and pest control services for homes and businesses.",
+          telephone: "+254700711442",
+          email: "gleamguard3@gmail.com",
+          url: "https://gleamguard-pro-web.lovable.app",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Nairobi",
+            addressRegion: "CBD",
+            addressCountry: "KE",
+          },
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+              opens: "07:00",
+              closes: "20:00",
+            },
+          ],
+        }),
+      },
     ],
   }),
   component: ContactPage,
@@ -96,8 +124,9 @@ function ContactPage() {
                   <SelectField label="Service" name="service" options={["Residential Cleaning", "Commercial Cleaning", "Pest Control", "Specialty Service"]} />
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-navy">Tell us about your space</label>
+                  <label htmlFor="contact-message" className="text-sm font-medium text-navy">Tell us about your space</label>
                   <textarea
+                    id="contact-message"
                     name="message"
                     rows={5}
                     required
@@ -135,10 +164,12 @@ function ContactPage() {
 }
 
 function Field({ label, name, type = "text", required }: { label: string; name: string; type?: string; required?: boolean }) {
+  const id = useId();
   return (
     <div>
-      <label className="text-sm font-medium text-navy">{label}</label>
+      <label htmlFor={id} className="text-sm font-medium text-navy">{label}</label>
       <input
+        id={id}
         name={name}
         type={type}
         required={required}
@@ -149,10 +180,12 @@ function Field({ label, name, type = "text", required }: { label: string; name: 
 }
 
 function SelectField({ label, name, options }: { label: string; name: string; options: string[] }) {
+  const id = useId();
   return (
     <div>
-      <label className="text-sm font-medium text-navy">{label}</label>
+      <label htmlFor={id} className="text-sm font-medium text-navy">{label}</label>
       <select
+        id={id}
         name={name}
         className="mt-1.5 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none transition-smooth focus:border-emerald focus:ring-2 focus:ring-emerald/20"
       >

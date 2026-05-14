@@ -1,0 +1,12 @@
+# GleamGuard
+
+> Premium eco-friendly cleaning and pest control services for homes and businesses in Nairobi, Kenya.
+
+GleamGuard delivers trusted, certified, plant-based cleaning and pest control. Licensed, insured, and committed to safe, healthy spaces for families and teams.
+
+## Pages
+
+- [Home](/): Overview of GleamGuard's eco cleaning and pest control services.
+- [Services](/services): Residential cleaning, commercial cleaning, pest control, specialty services, pricing tiers, and FAQs.
+- [About](/about): Company story, values, and team.
+- [Contact](/contact): Phone (0700 711 442), email (gleamguard3@gmail.com), CBD Nairobi office, and free quote form.
