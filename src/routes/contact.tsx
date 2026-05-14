@@ -49,14 +49,14 @@ function ContactPage() {
               <span className="grid h-10 w-10 flex-none place-items-center rounded-xl bg-emerald-grad text-white"><Phone className="h-5 w-5" /></span>
               <div>
                 <p className="text-sm font-semibold text-navy">Phone</p>
-                <p className="text-sm text-muted-foreground">(555) 412-9988</p>
+                <p className="text-sm text-muted-foreground">0700 711 442</p>
               </div>
             </li>
             <li className="flex items-start gap-3">
               <span className="grid h-10 w-10 flex-none place-items-center rounded-xl bg-emerald-grad text-white"><Mail className="h-5 w-5" /></span>
               <div>
                 <p className="text-sm font-semibold text-navy">Email</p>
-                <p className="text-sm text-muted-foreground">hello@gleamguard.co</p>
+                <p className="text-sm text-muted-foreground">gleamguard3@gmail.com</p>
               </div>
             </li>
             <li className="flex items-start gap-3">
