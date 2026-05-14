@@ -105,12 +105,23 @@ function ContactPage() {
                     placeholder="Square footage, frequency, special requests…"
                   />
                 </div>
-                <button
-                  type="submit"
-                  className="mt-2 inline-flex items-center justify-center rounded-full bg-navy px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft transition-smooth hover:bg-emerald hover:shadow-glow"
-                >
-                  Send Request
-                </button>
+                <div className="mt-2 flex flex-col gap-3 sm:flex-row">
+                  <button
+                    type="submit"
+                    className="inline-flex flex-1 items-center justify-center rounded-full bg-navy px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft transition-smooth hover:bg-emerald hover:shadow-glow"
+                  >
+                    Send Request
+                  </button>
+                  <a
+                    href="https://wa.me/254700711442?text=Hi%20GleamGuard%2C%20I%27d%20like%20to%20book%20a%20service."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-emerald px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft transition-smooth hover:bg-emerald/90 hover:shadow-glow"
+                  >
+                    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.06 0C5.5 0 .17 5.33.17 11.89c0 2.09.55 4.13 1.6 5.93L0 24l6.34-1.66a11.86 11.86 0 0 0 5.72 1.46h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.17-3.44-8.43ZM12.07 21.3h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.76.98 1-3.67-.22-.38a9.42 9.42 0 0 1-1.44-5c0-5.21 4.24-9.45 9.46-9.45 2.52 0 4.89.98 6.67 2.77a9.36 9.36 0 0 1 2.77 6.68c0 5.22-4.24 9.46-9.45 9.46Zm5.18-7.07c-.28-.14-1.68-.83-1.94-.92-.26-.1-.45-.14-.64.14-.19.28-.74.92-.9 1.11-.17.19-.33.21-.61.07-.28-.14-1.2-.44-2.28-1.41-.84-.75-1.41-1.67-1.58-1.95-.17-.28-.02-.43.12-.57.12-.12.28-.33.42-.49.14-.17.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.49.07-.75.35-.26.28-.99.97-.99 2.36 0 1.39 1.01 2.74 1.16 2.93.14.19 2 3.05 4.84 4.28.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.12.55-.08 1.68-.69 1.92-1.35.24-.66.24-1.23.17-1.35-.07-.12-.26-.19-.54-.33Z"/></svg>
+                    Chat on WhatsApp
+                  </a>
+                </div>
                 <p className="text-xs text-muted-foreground">
                   By submitting, you agree to be contacted about your inquiry. No spam, ever.
                 </p>
