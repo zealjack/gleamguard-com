@@ -63,7 +63,7 @@ function ContactPage() {
               <span className="grid h-10 w-10 flex-none place-items-center rounded-xl bg-emerald-grad text-white"><MapPin className="h-5 w-5" /></span>
               <div>
                 <p className="text-sm font-semibold text-navy">Office</p>
-                <p className="text-sm text-muted-foreground">240 Elm St, Suite 400</p>
+                <p className="text-sm text-muted-foreground">CBD, Nairobi, Kenya</p>
               </div>
             </li>
             <li className="flex items-start gap-3">
