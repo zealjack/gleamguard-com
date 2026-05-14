@@ -93,6 +93,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "GleamGuard",
+          url: "https://gleamguard-pro-web.lovable.app",
+          description: "Premium eco-friendly cleaning and pest control services for homes and businesses.",
+          email: "gleamguard3@gmail.com",
+          telephone: "+254700711442",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Nairobi",
+            addressRegion: "CBD",
+            addressCountry: "KE",
+          },
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
