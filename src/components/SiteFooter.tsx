@@ -39,7 +39,7 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-3 text-sm text-primary-foreground/80">
             <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-emerald" /> 0700 711 442</li>
             <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-emerald" /> gleamguard3@gmail.com</li>
-            <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-emerald" /> 240 Elm St, Suite 400</li>
+            <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-emerald" /> CBD, Nairobi, Kenya</li>
           </ul>
         </div>
       </div>
