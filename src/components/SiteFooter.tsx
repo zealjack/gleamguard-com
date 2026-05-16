@@ -37,9 +37,18 @@ export function SiteFooter() {
             Contact
           </h4>
           <ul className="mt-4 space-y-3 text-sm text-primary-foreground/80">
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-emerald" /><span>0700 711 442</span></li>
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-emerald" /><span>gleamguard3@gmail.com</span></li>
-            <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-emerald" /><span>CBD, Nairobi, Kenya</span></li>
+            <li className="flex items-center gap-2">
+              <Phone className="h-4 w-4 text-emerald" />
+              <a href="tel:+254700711442" className="hover:text-gold transition-smooth">0700 711 442</a>
+            </li>
+            <li className="flex items-center gap-2">
+              <Mail className="h-4 w-4 text-emerald" />
+              <a href="mailto:gleamguard3@gmail.com?subject=Service%20Inquiry" className="hover:text-gold transition-smooth">gleamguard3@gmail.com</a>
+            </li>
+            <li className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-emerald" />
+              <span>CBD, Nairobi, Kenya</span>
+            </li>
           </ul>
         </div>
       </div>
