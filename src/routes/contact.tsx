@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useId, useState, type FormEvent } from "react";
 import { SiteLayout } from "@/components/SiteLayout";
-import { Mail, Phone, MapPin, Clock, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, CheckCircle2, AlertCircle } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -44,11 +45,36 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setStatus("submitting");
+    setErrorMsg("");
+
+    const fd = new FormData(e.currentTarget);
+    const payload = {
+      full_name: String(fd.get("name") || "").trim(),
+      email: String(fd.get("email") || "").trim(),
+      phone: String(fd.get("phone") || "").trim() || null,
+      service: String(fd.get("service") || "").trim() || null,
+      message: String(fd.get("message") || "").trim(),
+    };
+
+    if (!payload.full_name || !payload.email || !payload.message) {
+      setStatus("error");
+      setErrorMsg("Please fill in your name, email and message.");
+      return;
+    }
+
+    const { error } = await supabase.from("leads").insert(payload);
+    if (error) {
+      setStatus("error");
+      setErrorMsg(error.message || "Something went wrong. Please try again.");
+      return;
+    }
+    setStatus("success");
   }
 
   return (
@@ -106,7 +132,7 @@ function ContactPage() {
 
         <div className="md:col-span-3">
           <div className="rounded-3xl border border-border bg-card p-8 shadow-elegant">
-            {submitted ? (
+            {status === "success" ? (
               <div className="py-8 text-center">
                 <CheckCircle2 className="mx-auto h-12 w-12 text-emerald" />
                 <h3 className="mt-4 font-display text-2xl font-bold text-navy">Thank you!</h3>
@@ -134,12 +160,19 @@ function ContactPage() {
                     placeholder="Square footage, frequency, special requests…"
                   />
                 </div>
+                {status === "error" && errorMsg && (
+                  <div className="flex items-start gap-2 rounded-xl border border-destructive/30 bg-destructive/5 p-3 text-sm text-destructive">
+                    <AlertCircle className="mt-0.5 h-4 w-4 flex-none" />
+                    <span>{errorMsg}</span>
+                  </div>
+                )}
                 <div className="mt-2 flex flex-col gap-3 sm:flex-row">
                   <button
                     type="submit"
-                    className="inline-flex flex-1 items-center justify-center rounded-full bg-navy px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft transition-smooth hover:bg-emerald hover:shadow-glow"
+                    disabled={status === "submitting"}
+                    className="inline-flex flex-1 items-center justify-center rounded-full bg-navy px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft transition-smooth hover:bg-emerald hover:shadow-glow disabled:opacity-60"
                   >
-                    Send Request
+                    {status === "submitting" ? "Sending…" : "Send Request"}
                   </button>
                   <a
                     href="https://wa.me/254700711442?text=Hi%20GleamGuard%2C%20I%27d%20like%20to%20book%20a%20service."
