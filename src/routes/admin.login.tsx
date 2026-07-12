@@ -22,8 +22,8 @@ function AdminLogin() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      if (data.session) navigate({ to: "/admin", replace: true });
+    supabase.auth.getSession().then((res) => {
+      if (res.data.session) navigate({ to: "/admin", replace: true });
     });
   }, [navigate]);
 
