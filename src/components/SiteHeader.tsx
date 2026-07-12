@@ -38,12 +38,20 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <Link
-          to="/contact"
-          className="hidden rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-smooth hover:bg-emerald hover:shadow-glow md:inline-flex"
-        >
-          Get a Free Quote
-        </Link>
+        <div className="hidden items-center gap-3 md:flex">
+          <Link
+            to="/contact"
+            className="rounded-full border border-navy/20 px-5 py-2.5 text-sm font-semibold text-navy transition-smooth hover:border-emerald hover:text-emerald"
+          >
+            Get a Free Quote
+          </Link>
+          <Link
+            to="/book"
+            className="rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-smooth hover:bg-emerald hover:shadow-glow"
+          >
+            Book a Service
+          </Link>
+        </div>
 
         <button
           aria-label="Toggle menu"
@@ -70,9 +78,16 @@ export function SiteHeader() {
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-navy px-5 py-3 text-center text-sm font-semibold text-primary-foreground"
+              className="mt-2 rounded-full border border-navy/20 px-5 py-3 text-center text-sm font-semibold text-navy"
             >
               Get a Free Quote
+            </Link>
+            <Link
+              to="/book"
+              onClick={() => setOpen(false)}
+              className="rounded-full bg-navy px-5 py-3 text-center text-sm font-semibold text-primary-foreground"
+            >
+              Book a Service
             </Link>
           </div>
         </div>
